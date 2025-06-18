@@ -17,15 +17,15 @@ def feedback():
     if request.method == 'POST':
         name= request.form['name']
         email= request.form['email']
-        comment= request.form['comment']
+        comments= request.form['comments']
         
         conn=get_db_connection()
         cursor=conn.cursor()
-        cursor.execute("INSERT INTO feedback(student_name,email,comment) VALUES(%s,%s,%s)",(name,email,comment))
+        cursor.execute("INSERT INTO feedback(student_name,email,comments) VALUES(%s,%s,%s)",(name,email,comments))
         conn.commit()
         cursor.close()
         conn.close()
-        return redirect('/')
+        return redirect('/thanks')
     
     return render_template('feedback.html')
 
@@ -38,6 +38,9 @@ def admin():
     cursor.close()
     conn.close()
     return render_template('admin.html',feedbacks=feedbacks)
+@app.route('/thanks')
+def thanks():
+    return render_template('thanks.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

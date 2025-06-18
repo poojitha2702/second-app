@@ -12,17 +12,17 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>ID</th><th> Name</th><th>Email</th><th>Comment</th><th>submitted At</th>
+            <th>ID</th><th> Name</th><th>Email</th><th>Comments</th><th>submitted At</th>
         </tr>
     </thead>
     <tbody>
         {% for fb in feedbacks %}
         <tr>
-            <td>{{fb,id}}</td>
-            <td>{{fb,student_name}}</td>
-            <td>{{fb,email}}</td>
-            <td>{{fb,comments}}</td>
-            <td>{{fb,submitted_at}}</td>
+            <td>{{fb.id}}</td>
+            <td>{{fb.student_name}}</td>
+            <td>{{fb.email}}</td>
+            <td>{{fb.comments}}</td>
+            <td>{{fb.submitted_at}}</td>
         </tr>
         {% endfor %}
     </tbody>
